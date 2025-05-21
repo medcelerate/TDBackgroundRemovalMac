@@ -1,0 +1,341 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		94A1FDB62DDD5D6C00033926 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1FDB42DDD5D6C00033926 /* Vision.framework */; };
+		94A1FDB72DDD5D6C00033926 /* VisionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1FDB52DDD5D6C00033926 /* VisionKit.framework */; };
+		94A1FDBB2DDD5D8C00033926 /* BGRemoverTOP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94A1FDB82DDD5D8C00033926 /* BGRemoverTOP.mm */; };
+		94A1FDBD2DDD5D9C00033926 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1FDBC2DDD5D9C00033926 /* CoreGraphics.framework */; };
+		94A1FDBF2DDD5DA400033926 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1FDBE2DDD5DA400033926 /* CoreVideo.framework */; };
+		94A1FDC12DDD5DAC00033926 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1FDC02DDD5DAC00033926 /* CoreImage.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		94A1FDAC2DDD5D5B00033926 /* BGRemoverTOP.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BGRemoverTOP.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		94A1FDB42DDD5D6C00033926 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
+		94A1FDB52DDD5D6C00033926 /* VisionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisionKit.framework; path = System/Library/Frameworks/VisionKit.framework; sourceTree = SDKROOT; };
+		94A1FDB82DDD5D8C00033926 /* BGRemoverTOP.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BGRemoverTOP.mm; sourceTree = "<group>"; };
+		94A1FDB92DDD5D8C00033926 /* CPlusPlus_Common.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CPlusPlus_Common.hpp; sourceTree = "<group>"; };
+		94A1FDBA2DDD5D8C00033926 /* TOP_CPlusPlusBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TOP_CPlusPlusBase.hpp; sourceTree = "<group>"; };
+		94A1FDBC2DDD5D9C00033926 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		94A1FDBE2DDD5DA400033926 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		94A1FDC02DDD5DAC00033926 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94A1FDA92DDD5D5B00033926 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A1FDBD2DDD5D9C00033926 /* CoreGraphics.framework in Frameworks */,
+				94A1FDB62DDD5D6C00033926 /* Vision.framework in Frameworks */,
+				94A1FDC12DDD5DAC00033926 /* CoreImage.framework in Frameworks */,
+				94A1FDB72DDD5D6C00033926 /* VisionKit.framework in Frameworks */,
+				94A1FDBF2DDD5DA400033926 /* CoreVideo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94A1FDA32DDD5D5B00033926 = {
+			isa = PBXGroup;
+			children = (
+				94A1FDB82DDD5D8C00033926 /* BGRemoverTOP.mm */,
+				94A1FDB92DDD5D8C00033926 /* CPlusPlus_Common.hpp */,
+				94A1FDBA2DDD5D8C00033926 /* TOP_CPlusPlusBase.hpp */,
+				94A1FDB32DDD5D6C00033926 /* Frameworks */,
+				94A1FDAD2DDD5D5B00033926 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94A1FDAD2DDD5D5B00033926 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94A1FDAC2DDD5D5B00033926 /* BGRemoverTOP.plugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94A1FDB32DDD5D6C00033926 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94A1FDC02DDD5DAC00033926 /* CoreImage.framework */,
+				94A1FDBE2DDD5DA400033926 /* CoreVideo.framework */,
+				94A1FDBC2DDD5D9C00033926 /* CoreGraphics.framework */,
+				94A1FDB42DDD5D6C00033926 /* Vision.framework */,
+				94A1FDB52DDD5D6C00033926 /* VisionKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94A1FDAB2DDD5D5B00033926 /* BGRemoverTOP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94A1FDB02DDD5D5B00033926 /* Build configuration list for PBXNativeTarget "BGRemoverTOP" */;
+			buildPhases = (
+				94A1FDA82DDD5D5B00033926 /* Sources */,
+				94A1FDA92DDD5D5B00033926 /* Frameworks */,
+				94A1FDAA2DDD5D5B00033926 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BGRemoverTOP;
+			packageProductDependencies = (
+			);
+			productName = BGRemoverTOP;
+			productReference = 94A1FDAC2DDD5D5B00033926 /* BGRemoverTOP.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		94A1FDA42DDD5D5B00033926 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					94A1FDAB2DDD5D5B00033926 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+				};
+			};
+			buildConfigurationList = 94A1FDA72DDD5D5B00033926 /* Build configuration list for PBXProject "BGRemoverTOP" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 94A1FDA32DDD5D5B00033926;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 94A1FDAD2DDD5D5B00033926 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94A1FDAB2DDD5D5B00033926 /* BGRemoverTOP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		94A1FDAA2DDD5D5B00033926 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94A1FDA82DDD5D5B00033926 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A1FDBB2DDD5D8C00033926 /* BGRemoverTOP.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		94A1FDAE2DDD5D5B00033926 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = PRV225SJUU;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		94A1FDAF2DDD5D5B00033926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = PRV225SJUU;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		94A1FDB12DDD5D5B00033926 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PRV225SJUU;
+				EXECUTABLE_EXTENSION = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BGRemover;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.virtualworx.BGRemoverTOP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = plugin;
+			};
+			name = Debug;
+		};
+		94A1FDB22DDD5D5B00033926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PRV225SJUU;
+				EXECUTABLE_EXTENSION = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BGRemover;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.virtualworx.BGRemoverTOP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = plugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94A1FDA72DDD5D5B00033926 /* Build configuration list for PBXProject "BGRemoverTOP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94A1FDAE2DDD5D5B00033926 /* Debug */,
+				94A1FDAF2DDD5D5B00033926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94A1FDB02DDD5D5B00033926 /* Build configuration list for PBXNativeTarget "BGRemoverTOP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94A1FDB12DDD5D5B00033926 /* Debug */,
+				94A1FDB22DDD5D5B00033926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 94A1FDA42DDD5D5B00033926 /* Project object */;
+}
