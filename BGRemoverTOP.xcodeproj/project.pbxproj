@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		946385A92E05B87400BB2491 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946385A82E05B87400BB2491 /* ImageIO.framework */; };
+		946385AB2E05B8E100BB2491 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946385AA2E05B8E100BB2491 /* UniformTypeIdentifiers.framework */; };
 		94A1FDB62DDD5D6C00033926 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1FDB42DDD5D6C00033926 /* Vision.framework */; };
 		94A1FDB72DDD5D6C00033926 /* VisionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1FDB52DDD5D6C00033926 /* VisionKit.framework */; };
 		94A1FDBB2DDD5D8C00033926 /* BGRemoverTOP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94A1FDB82DDD5D8C00033926 /* BGRemoverTOP.mm */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		946385A82E05B87400BB2491 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		946385AA2E05B8E100BB2491 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 		94A1FDAC2DDD5D5B00033926 /* BGRemoverTOP.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BGRemoverTOP.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1FDB42DDD5D6C00033926 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		94A1FDB52DDD5D6C00033926 /* VisionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisionKit.framework; path = System/Library/Frameworks/VisionKit.framework; sourceTree = SDKROOT; };
@@ -34,7 +38,9 @@
 			files = (
 				94A1FDBD2DDD5D9C00033926 /* CoreGraphics.framework in Frameworks */,
 				94A1FDB62DDD5D6C00033926 /* Vision.framework in Frameworks */,
+				946385A92E05B87400BB2491 /* ImageIO.framework in Frameworks */,
 				94A1FDC12DDD5DAC00033926 /* CoreImage.framework in Frameworks */,
+				946385AB2E05B8E100BB2491 /* UniformTypeIdentifiers.framework in Frameworks */,
 				94A1FDB72DDD5D6C00033926 /* VisionKit.framework in Frameworks */,
 				94A1FDBF2DDD5DA400033926 /* CoreVideo.framework in Frameworks */,
 			);
@@ -65,6 +71,8 @@
 		94A1FDB32DDD5D6C00033926 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				946385AA2E05B8E100BB2491 /* UniformTypeIdentifiers.framework */,
+				946385A82E05B87400BB2491 /* ImageIO.framework */,
 				94A1FDC02DDD5DAC00033926 /* CoreImage.framework */,
 				94A1FDBE2DDD5DA400033926 /* CoreVideo.framework */,
 				94A1FDBC2DDD5D9C00033926 /* CoreGraphics.framework */,

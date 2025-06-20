@@ -6,6 +6,7 @@
 #import <CoreImage/CoreImage.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <OpenGL/gl.h>
+#import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
 using namespace TD;
 
@@ -89,6 +90,10 @@ void InstanceMaskTOP::execute(TOP_Output* output, const OP_Inputs* inputs, void*
             format = kCIFormatRGBA16;
             bytesPerRow = width * 8;
             break;
+        case OP_PixelFormat::RGBA32Float:
+            format = kCIFormatRGBAf;
+            bytesPerRow = width * 16;
+            break;
         default:
             return;
     }
@@ -103,7 +108,7 @@ void InstanceMaskTOP::execute(TOP_Output* output, const OP_Inputs* inputs, void*
     VNGenerateForegroundInstanceMaskRequest* fgRequest = [VNGenerateForegroundInstanceMaskRequest new];
     fgRequest.revision = VNGenerateForegroundInstanceMaskRequestRevision1;
     VNImageRequestHandler* handler = [[VNImageRequestHandler alloc] initWithCIImage:ciImage options:@{}];
-
+    
     NSError* error = nil;
     [handler performRequests:@[fgRequest] error:&error];
     if (error) {
@@ -122,35 +127,104 @@ void InstanceMaskTOP::execute(TOP_Output* output, const OP_Inputs* inputs, void*
     if (error) {
         return;
     }
-    CVPixelBufferLockBaseAddress(maskPB, kCVPixelBufferLock_ReadOnly);
-    uint8_t* maskBase = (uint8_t*)CVPixelBufferGetBaseAddress(maskPB);
-    if(!maskBase) {
-        return;
-    }
 
-    TD::OP_SmartRef<TD::TOP_Buffer> buf = myContext->createOutputBuffer(downRes->size, TD::TOP_BufferFlags::None, nullptr);
     
     
-    // Copy the mask to the output buffer
     
-    uint8_t* dst = (uint8_t*)buf->data;
-    for (int y = 0; y < buf->size; y+=4) {
-        dst[y]     = maskBase[y]  ; // R
-        dst[y + 1] = maskBase[y+1]; // G
-        dst[y + 2] = maskBase[y+2]; // B
-        dst[y + 3] = 255; // A from mask
+    // Lock the pixel buffer to access its data
+    
+    CVPixelBufferLockBaseAddress(maskPB, kCVPixelBufferLock_ReadOnly);
+    auto g = CVPixelBufferGetDataSize(maskPB);
+    float*  srcF      = (float*)CVPixelBufferGetBaseAddress(maskPB);
+    size_t  strideF  = CVPixelBufferGetBytesPerRow(maskPB) / sizeof(float);
+    size_t     W       = CVPixelBufferGetWidth(maskPB);
+    size_t     H       = CVPixelBufferGetHeight(maskPB);
+    if (!srcF || W != width || H != height) {
+        CVPixelBufferUnlockBaseAddress(maskPB, kCVPixelBufferLock_ReadOnly);
+        CVPixelBufferRelease(maskPB);
+        return;
     }
         
     
+
+    TD::OP_SmartRef<TD::TOP_Buffer> buf = myContext->createOutputBuffer(downRes->size, TD::TOP_BufferFlags::None, nullptr);
+    
+
+    uint8_t* dst    = (uint8_t*)buf->data;
+    size_t   dstRow = W * 4;
+
+    switch (opts.pixelFormat) {
+
+      // ——————————————————————————————————————
+      case OP_PixelFormat::BGRA8Fixed:
+      case OP_PixelFormat::RGBA8Fixed: {
+        size_t dstRow = W * 4;                        // 4 bytes/pixel
+        // write U8 RGBA
+        for (int y = 0; y < H; ++y) {
+          float*   sRow = srcF  + y*strideF;
+          uint8_t* dRow = dst + y*dstRow;
+          for (int x = 0; x < W; ++x) {
+            float   f = sRow[x];                      // [0..1]
+            uint8_t m = (f > 0.5f ? 255 : 0);          // hard threshold
+            dRow[4*x + 0] = m;                        // B or R
+            dRow[4*x + 1] = m;                        // G
+            dRow[4*x + 2] = m;                        // R or B
+            dRow[4*x + 3] = 255;                      // A
+          }
+        }
+        break;
+      }
+
+      // ——————————————————————————————————————
+      case OP_PixelFormat::RGBA16Fixed: {
+        size_t dstRow = W * 8;                        // 8 bytes/pixel
+        // write U16 RGBA
+        for (int y = 0; y < H; ++y) {
+          float*    sRow = srcF + y*strideF;
+          uint16_t* dRow = (uint16_t*)(dst + y*dstRow);
+          for (int x = 0; x < W; ++x) {
+            float    f   = sRow[x];
+            uint16_t m16 = (f > 0.5f ? 0xFFFF          // threshold to full
+                                    : uint16_t(f*65535.0f));
+            dRow[4*x + 0] = m16;
+            dRow[4*x + 1] = m16;
+            dRow[4*x + 2] = m16;
+            dRow[4*x + 3] = 0xFFFF;                   // full alpha
+          }
+        }
+        break;
+      }
+
+      // ——————————————————————————————————————
+      default: {
+        // assume anything else you want as full 32-bit float RGBA
+        size_t dstRow = W * 4 * sizeof(float);
+        for (int y = 0; y < H; ++y) {
+          float* dRow = (float*)(dst + y*dstRow);
+          float* sRow = srcF   + y*strideF;
+          for (int x = 0; x < W; ++x) {
+            float v = sRow[x];      // raw probability [0..1]
+            // if you want a hard cut, uncomment:
+            // v = (v > 0.5f ? 1.0f : 0.0f);
+            dRow[4*x + 0] = v;
+            dRow[4*x + 1] = v;
+            dRow[4*x + 2] = v;
+            dRow[4*x + 3] = 1.0f;
+          }
+        }
+        // your SDK’s float‐RGBA format:
+        break;
+      }
+    }
+    
     TD::TOP_UploadInfo info;
-    info.textureDesc = downRes->textureDesc;
+    info.textureDesc = top->textureDesc;
     info.colorBufferIndex = 0;
     
     output->uploadBuffer(&buf, info, nullptr);
 
     CVPixelBufferUnlockBaseAddress(maskPB, kCVPixelBufferLock_ReadOnly);
     CVPixelBufferRelease(maskPB);
-
 }
 
 void InstanceMaskTOP::setupParameters(OP_ParameterManager* manager, void* /*reserved1*/) {
